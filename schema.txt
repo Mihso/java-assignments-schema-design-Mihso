@@ -8,8 +8,8 @@ INSERT INTO person_interest (person_id,interest_id) VALUES (1,1),(1,2),(1,6),(2,
 
 UPDATE person SET age = age + 1 WHERE id = 1 OR id = 6 OR id = 8 OR id = 14 OR id = 12 OR id = 18 OR id = 5 OR id = 4;
 
-DELETE FROM person_interest where person_id = 2 OR person_id = 17;
-DELETE FROM person where id = 2 OR id = 17;
+DELETE FROM person_interest WHERE person_id = 2 OR person_id = 17;
+DELETE FROM person WHERE id = 2 OR id = 17;
 
 SELECT "firstName", "lastName" FROM person;
 
@@ -17,13 +17,13 @@ SELECT "firstName", "lastName", city, state FROM person
 JOIN location ON person.location_id = location.id 
 WHERE city = 'Nashville' AND state = 'Tennessee';
 
-SELECT city, COUNT(city) from location
+SELECT city, COUNT(city) FROM location
 JOIN person ON person.location_id = location.id
-Group BY city;
+GROUP BY city;
 
-SELECT title, COUNT(person_interest.person_id) from interest
+SELECT title, COUNT(person_interest.person_id) FROM interest
 JOIN person_interest ON person_interest.interest_id = interest.id
-Group BY title;
+GROUP BY title;
 
 SELECT "firstName", "lastName", city, state, interest.title AS interest FROM person
 JOIN location ON person.location_id = location.id
