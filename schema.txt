@@ -28,7 +28,8 @@ GROUP BY title;
 SELECT "firstName", "lastName", city, state, interest.title AS interest FROM person
 JOIN location ON person.location_id = location.id
 JOIN person_interest ON person.id = person_interest.person_id
-JOIN interest ON person_interest.interest_id = interest.id;
+JOIN interest ON person_interest.interest_id = interest.id
+WHERE interest.title = 'Programming';
 
 SELECT CASE WHEN AVG(age) BETWEEN 20 AND 30 THEN '20-30'
 WHEN AVG(age) BETWEEN 31 AND 40 THEN '30-40'
